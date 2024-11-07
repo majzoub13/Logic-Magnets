@@ -22,6 +22,13 @@ class Board:
         for g in self.g:
             self.playingBoard[g[0]][g[1]] = Pieces("G")
 
+    def __eq__(self, other):
+        for i in range(self.n):
+            for j in range(self.m):
+                if self.playingBoard[i][j] != other.playingBoard[i][j]:
+                    return False
+        return True
+
     def __str__(self):
         output = "  "
         for j in range(self.m):
