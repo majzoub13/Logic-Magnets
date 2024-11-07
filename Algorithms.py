@@ -1,5 +1,3 @@
-from Board import Board
-from GameLogic import GameLogic
 from copy import deepcopy
 
 

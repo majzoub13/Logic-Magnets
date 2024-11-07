@@ -25,7 +25,7 @@ class Board:
     def __eq__(self, other):
         for i in range(self.n):
             for j in range(self.m):
-                if self.playingBoard[i][j] != other.playingBoard[i][j]:
+                if self.playingBoard[i][j].char != other.playingBoard[i][j].char:
                     return False
         return True
 

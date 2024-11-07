@@ -1,6 +1,4 @@
 from Pieces import Pieces
-from Board import Board
-from copy import deepcopy
 
 
 class GameLogic:
@@ -99,9 +97,8 @@ class GameLogic:
         else:
             return False
 
-    def isEmptySpace(
-        self, board, x, y
-    ):  # returns true if spot is empty or can be moved into
+    # returns true if spot is empty or can be moved into
+    def isEmptySpace(self, board, x, y):
         return self.checkInRange(board, x, y) and (
             board.playingBoard[x][y].char == "." or board.playingBoard[x][y].char == "W"
         )

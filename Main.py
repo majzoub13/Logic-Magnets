@@ -54,5 +54,6 @@ board25 = Board(5, 4,[(4,0)],[(0,3)],[(0,0),(1,2),(3,2),(4,3)],[(0,0),(0,3),(2,0
 board25.startBoard()
 
 logic=GameLogic(2)
+
 algorithms=Algorithms(logic)
-algorithms.dfs(board5)
+algorithms.dfs(board1)
