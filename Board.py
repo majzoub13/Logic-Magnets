@@ -41,3 +41,20 @@ class Board:
                 output += f"{piece} "  # print piece character
             output += "\n"
         return output
+
+    def hillClimbHeuristic(self):
+        boardCost = 0
+        for i in range(self.n):
+            for j in range(self.m):
+                if self.playingBoard[i][j].char == "G":
+                    costs = []
+                    for w in self.w:
+                        x = abs((i - w[0]))
+                        y = abs((j - w[1]))
+                        cost = x + y
+                        costs.append(cost)
+                    boardCost = boardCost + min(costs)
+                elif self.playingBoard[i][j].char in ["P", "R"]:
+                    if (i, j) not in self.w:
+                        boardCost = boardCost + 1
+        return boardCost
