@@ -11,6 +11,7 @@ class Board:
         self.g = g
         self.w = w
         self.playingBoard = [[Pieces(".") for _ in range(m)] for _ in range(n)]
+        self.parent = None
 
     def startBoard(self):
         for w in self.w:
@@ -23,11 +24,13 @@ class Board:
             self.playingBoard[g[0]][g[1]] = Pieces("G")
 
     def __eq__(self, other):
-        for i in range(self.n):
-            for j in range(self.m):
-                if self.playingBoard[i][j].char != other.playingBoard[i][j].char:
-                    return False
-        return True
+        if type(self) == type(other):
+            for i in range(self.n):
+                for j in range(self.m):
+                    if self.playingBoard[i][j].char != other.playingBoard[i][j].char:
+                        return False
+            return True
+        return False
 
     def __str__(self):
         output = "  "
@@ -41,6 +44,9 @@ class Board:
                 output += f"{piece} "  # print piece character
             output += "\n"
         return output
+
+    def ucsCost(self, cost):
+        return cost + 1
 
     def hillClimbHeuristic(self):
         boardCost = 0
